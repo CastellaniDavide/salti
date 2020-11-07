@@ -18,25 +18,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define DEBUG
+
 // Variabiles
-int N;
+int N, result, mask;
 
 // Main code
 int main()
 {
-  // Cncomment the following lines if you want to read/write from files
-  // freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", stdout);
+    // Cncomment the following lines if you want to read/write from files
+#ifndef DEBUG
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif // DEBUG
 
-  // Input
-  cin >> N;
+    // Input
+    cin >> N;
 
-  // Code
-  // ...
+    for (int i = 0; i < 31; ++i)
+    {
+        mask = 1 << i;
+#ifdef DEBUG
+        cout << i << "\t" << mask << "\t" << (N & mask) << endl;
+#endif // DEBUG
+        if((N & mask) > 0)
+            ++result;
+    }
 
-  // Output
-  cout << N << endl;
+    // Output
+    cout << result << endl;
 
-  // End
-  return 0;
+    // End
+    return 0;
 }
